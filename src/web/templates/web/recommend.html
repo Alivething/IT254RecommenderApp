@@ -1,10 +1,11 @@
 {% extends 'web/base.html'%}
 {% block title %}Recommendations{% endblock %}
 {% block body %}
-
+<div style="margin: 5%;color: white;">
 <div class="container-fluid">
-	<h2>Recommendations for You </h2>
+	<h2 style="color: white">Recommendations for You </h2>
 </div>
+<br>
 
 
 	<div class="container-fluid">
@@ -13,11 +14,11 @@
     <div class="row">
             {% if movie_list %}
             {% for movie in movie_list %}
-                <div class="col-sm-2 col-md-2 ">
-                    <div class="thumbnail">
+                <div class="col-sm-3 col-md-3 ">
+                    <div class="thumbnail" style="background-color: #3A4750;">
                         <h4>{{movie.title}}</h4>
                         <a href="{% url 'detail' movie.id %}">
-                            <img src="{{ movie.movie_logo.url}}" class="img-responsive">
+                            <img src="{{ movie.movie_logo.url}}" style="width: 200; height: 400px" class="img-responsive">
                         </a>
                         <h5>{{movie.genre}}</h5>
                         <div class="caption">
@@ -34,5 +35,5 @@
         </div>
     
 </div>
-
+</div>
 {% endblock %}
