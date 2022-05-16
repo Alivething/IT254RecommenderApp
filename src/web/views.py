@@ -29,7 +29,7 @@ def recommend(request):
 
 	print("Current user id: ",current_user_id)
 	prediction_matrix,Ymean = Myrecommend()
-	my_predictions = prediction_matrix[:,current_user_id-1]+Ymean.flatten()
+	my_predictions = prediction_matrix[:,current_user_id-11]+Ymean.flatten()
 	pred_idxs_sorted = np.argsort(my_predictions)
 	pred_idxs_sorted[:] = pred_idxs_sorted[::-1]
 	pred_idxs_sorted=pred_idxs_sorted+1

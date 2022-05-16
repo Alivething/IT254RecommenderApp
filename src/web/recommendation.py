@@ -44,7 +44,8 @@ def Myrecommend():
 
 	df=pd.DataFrame(list(Myrating.objects.all().values()))
 	mynu=df.user_id.unique().shape[0]
-	mynm=df.movie_id.unique().shape[0]
+	mynm=df.movie_id.unique().shape[0]+10
+	print(mynm, mynu)
 	mynf=10
 	Y=np.zeros((mynm,mynu))
 	for row in df.itertuples():
@@ -64,11 +65,3 @@ def Myrecommend():
 	resX, resTheta = reshapeParams(result[0], mynm, mynu, mynf)
 	prediction_matrix = resX.dot(resTheta.T)
 	return prediction_matrix,Ymean
-	
-
-
-
-
-
-
-
